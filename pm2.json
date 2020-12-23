@@ -1,0 +1,10 @@
+{
+  "name": "plutoweb", 
+  "version": "1.0.0",
+  "description": "this is pluto-web app",
+  "apps" : [{
+    "script" : "npm run start"
+  }],
+  "author": "automan",
+  "license": "MIT"
+}
