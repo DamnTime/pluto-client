@@ -12,25 +12,16 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'Navbar',
   computed: {
     ...mapGetters('navBar', ['currentCategory', 'cates']),
   },
   methods: {
-    ...mapMutations('homeTitle', ['UPDATE_TITLE']),
     handleClickTab(id) {
       const isNew = id < 0
       this.$router.push({ path: isNew ? '/' : `/${id}` })
-      let title = ''
-      if (isNew) {
-        title = '最新'
-      } else {
-        const currentItem = this.cates.find((cate) => cate.id === +id) || {}
-        title = currentItem.name
-      }
-      this.UPDATE_TITLE(title)
     },
   },
 }

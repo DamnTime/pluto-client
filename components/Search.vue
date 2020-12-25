@@ -16,7 +16,6 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
 import { fixedEncodeURIComponent } from '@/utils'
 export default {
   name: 'Search',
@@ -24,11 +23,9 @@ export default {
     return {}
   },
   methods: {
-    ...mapMutations('homeTitle', ['UPDATE_TITLE']),
     handleSearch(e) {
       const { value } = e.target
       if (!value) return
-      this.UPDATE_TITLE(`搜索有关于"${value}"的文章`)
       this.$router.push({
         path: `/search/${fixedEncodeURIComponent(value)}`,
       })

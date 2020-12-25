@@ -1,10 +1,14 @@
 <template>
   <div class="home-container">
     <home-title title="最新" />
-    <div class="article-list-container">
-      <article-item v-for="item in articleList" :key="item.id" :info="item" />
-      <loading :has-more="hasMore" />
-    </div>
+    <article-wrapper>
+      <template v-slot:article>
+        <article-item v-for="item in articleList" :key="item.id" :info="item" />
+      </template>
+      <template v-slot:hasMore>
+        <loading :has-more="hasMore" />
+      </template>
+    </article-wrapper>
   </div>
 </template>
 
@@ -16,6 +20,7 @@ export default {
   mixins: [reachBottom],
   async asyncData({ app, store }) {
     await store.dispatch('navBar/fetchCatesAction')
+    store.commit('navBar/UPDATE_CURRENTCATEGORY', '-1')
     const result = await fetchArticlesLatest()
     const { list, totalPage, page } = result
     return {
@@ -50,11 +55,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less" scoped>
-.article-list-container {
-  padding: 30px;
-  border-radius: 0 0 5px 5px;
-  background-color: #fff;
-}
-</style>

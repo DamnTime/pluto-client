@@ -4,9 +4,17 @@
 
 <script>
 import { mapGetters } from 'vuex'
+import { fixedEncodeURIComponent } from '@/utils'
 export default {
   computed: {
-    ...mapGetters('homeTitle', ['currentTitle']),
+    ...mapGetters('navBar', ['cates', 'currentCategory']),
+    currentTitle() {
+      const [pageName, param] = this.$route.path.substr(1).split('/')
+      if (pageName === 'search')
+        return `搜索有关于"${fixedEncodeURIComponent(param)}"的文章`
+      const current = this.cates.find((c) => c.id === +this.currentCategory)
+      return current ? current.name : '最新'
+    },
   },
 }
 </script>

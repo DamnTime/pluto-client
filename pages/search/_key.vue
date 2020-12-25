@@ -1,10 +1,14 @@
 <template>
   <div class="home-container">
     <home-title />
-    <div class="article-list-container">
-      <article-item v-for="item in articleList" :key="item.id" :info="item" />
-      <loading :has-more="hasMore" />
-    </div>
+    <article-wrapper>
+      <template v-slot:article>
+        <article-item v-for="item in articleList" :key="item.id" :info="item" />
+      </template>
+      <template v-slot:hasMore>
+        <loading :has-more="hasMore" />
+      </template>
+    </article-wrapper>
   </div>
 </template>
 
@@ -55,11 +59,3 @@ export default {
   },
 }
 </script>
-
-<style lang="less" scoped>
-.article-list-container {
-  padding: 30px;
-  border-radius: 0 0 5px 5px;
-  background-color: #fff;
-}
-</style>

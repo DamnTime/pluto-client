@@ -41,6 +41,7 @@ export default {
 
 <style lang="less" scoped>
 .article-item-wrapper {
+  width: 49%;
   height: 210px;
   box-shadow: 0 1px 2px hsla(0, 0%, 59%, 0.6);
   background-color: #fff;
@@ -52,6 +53,11 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   font-size: 14px;
+  cursor: pointer;
+  transition: transform 0.3s linear;
+  &:hover {
+    transform: translateY(-5px);
+  }
   .time {
     color: #727272;
     font-size: 14px;
