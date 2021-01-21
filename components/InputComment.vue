@@ -1,25 +1,29 @@
 <template>
-  <div class="input-comment">
-    <div v-if="userInfo" class="input-container">
-      <div class="input-area">
-        <Icon type="ios-contact" size="35" color="#2d8cf0" class="icon" />
-        <Input
-          v-model="content"
-          type="textarea"
-          :maxlength="100"
-          placeholder="说点什么吧..."
-        />
+  <client-only>
+    <div class="input-comment">
+      <div v-if="userInfo" class="input-container">
+        <div class="input-area">
+          <Icon type="ios-contact" size="35" color="#2d8cf0" class="icon" />
+          <Input
+            v-model="content"
+            type="textarea"
+            :maxlength="100"
+            placeholder="说点什么吧..."
+          />
+        </div>
+        <div class="btn">
+          <Button class="comment-btn" type="primary" @click="handleComment"
+            >评论</Button
+          >
+        </div>
       </div>
-      <div class="btn">
-        <Button class="comment-btn" type="primary" @click="handleComment"
-          >评论</Button
-        >
-      </div>
+      <client-only v-else>
+        <div class="not-login">
+          <Button type="text" @click="handleLogin">登录</Button>后评论
+        </div>
+      </client-only>
     </div>
-    <div v-else class="not-login">
-      <Button type="text" @click="handleLogin">登录</Button>后评论
-    </div>
-  </div>
+  </client-only>
 </template>
 
 <script>

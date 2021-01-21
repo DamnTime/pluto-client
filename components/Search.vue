@@ -5,18 +5,21 @@
       alt="automan个人技术博客vue、react、node"
       class="nav-bar-logo"
     />
-    <div class="search">
-      <div class="input-wrapper">
-        <Input
-          prefix="ios-search"
-          placeholder="不搜点什么吗~"
-          @on-enter="handleSearch"
-        />
+    <client-only>
+      <div class="search">
+        <div class="input-wrapper">
+          <Input
+            prefix="ios-search"
+            placeholder="不搜点什么吗~"
+            @on-enter="handleSearch"
+          />
+        </div>
+
+        <span v-if="userInfo"
+          >欢迎登录 | <strong>{{ userInfo.nickName }}</strong></span
+        >
       </div>
-      <span v-if="userInfo"
-        >欢迎登录 | <strong>{{ userInfo.nickName }}</strong></span
-      >
-    </div>
+    </client-only>
   </div>
 </template>
 
