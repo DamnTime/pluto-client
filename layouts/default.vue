@@ -27,7 +27,7 @@
 
 <style lang="less" scoped>
 #app {
-  background: url(//cdn.pluto1811.com/veer-302182224.jpg) no-repeat center/cover;
+  background: url(//cdn.pluto1811.com/153639503_2.jpg) no-repeat center/cover;
 }
 .top {
   position: fixed;

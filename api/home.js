@@ -24,3 +24,33 @@ export const fetchArticleDetail = (params) => {
 export const fetchArticleSearchList = (params) => {
   return request.get('/web/searchArticle', params)
 }
+
+// 获取所有用户标签
+export const fetchUserTags = (params) => {
+  return request.get('/web/userTag', params)
+}
+
+// 注册
+export const register = (params) => {
+  return request.post('/web/register', params)
+}
+
+// 登录
+export const login = (params) => {
+  return request.post('/web/login', params)
+}
+
+// 创建评论
+export const createComment = (params) => {
+  return request.post('/web/comment', params)
+}
+
+// 根据文章id查找评论列表
+export const getCommentList = (params) => {
+  return request.get('/web/comment-by-article', params)
+}
+
+// 更新文章阅读数
+export const updateArticlePageNum = (params) => {
+  return request.post('/web/updateArticlePageNum', params)
+}

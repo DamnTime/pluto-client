@@ -14,14 +14,14 @@
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
-    "cookie-universal-nuxt": "^2.1.4",
     "core-js": "^3.6.5",
     "dayjs": "^1.9.6",
     "highlight.js": "^10.4.0",
     "iview": "^3.5.4",
     "marked": "^1.2.5",
     "normalize.css": "^8.0.1",
-    "nuxt": "^2.14.6"
+    "nuxt": "^2.14.6",
+    "nuxt-vuex-localstorage": "^1.2.7"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",

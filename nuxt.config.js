@@ -40,7 +40,13 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     '@nuxtjs/proxy',
-    'cookie-universal-nuxt',
+    [
+      'nuxt-vuex-localstorage',
+      {
+        mode: 'debug',
+        sessionStorage: ['user'],
+      },
+    ],
     [
       '@nuxtjs/dotenv',
       {
