@@ -74,6 +74,10 @@ export default {
   async asyncData({ params, store }) {
     await store.dispatch('navBar/fetchCatesAction')
     const res = await fetchArticleDetail({ id: params.id })
+    // res.content = res.content.replace(
+    //   /\<img/gi,
+    //   '<img style="max-width:100%;height:auto;border-radius:6px" '
+    // )
     const list = await getCommentList({ articleId: res.id })
     res.content = marked(res.content)
     return {
@@ -181,5 +185,9 @@ export default {
 }
 .detail-body /deep/ img {
   cursor: zoom-in;
+  max-width: 100%;
+  max-height: 400px;
+  border-radius: 6px;
+  vertical-align: top;
 }
 </style>
