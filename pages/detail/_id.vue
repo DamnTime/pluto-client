@@ -14,9 +14,6 @@
         </div>
       </div>
     </div>
-    <div class="article-img">
-      <img :src="info.cover" alt="" />
-    </div>
     <div class="detail-body" v-html="info.content"></div>
     <picture-modal
       :img-src="imgSrc"
