@@ -58,5 +58,5 @@ export const updateArticlePageNum = (params) => {
 
 // 获取每日一言
 export const getDailyWords = (params) => {
-  return Axios.get('https://v1.hitokoto.cn/?c=j', params)
+  return Axios.get('https://v1.hitokoto.cn/?c=j&c=f&c=e', params)
 }

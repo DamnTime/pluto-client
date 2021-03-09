@@ -9,13 +9,19 @@
   >
     <div class="content">
       <span class="txt">{{ words.hitokoto }}</span> --来自：{{ filterFrom }}
-      {{ words.from_who ? `| ${words.from_who}` : '' }}
+      {{ filterFromWho }}
     </div>
   </div>
 </template>
 
 <script>
 import { getDailyWords } from '@/api/home'
+
+const FROM_ENMUS = {
+  f: '网络原创',
+  j: '网易云热评',
+  e: '大v原创',
+}
 
 export default {
   name: 'DailyWords',
@@ -30,10 +36,11 @@ export default {
       return Object.keys(this.words).length > 0
     },
     filterFrom() {
-      if (!this.words.from) return ''
-      return this.words.from.indexOf('来自')
-        ? this.words.from.replace('来自', '')
-        : this.words.from
+      return FROM_ENMUS[this.words.type]
+    },
+    filterFromWho() {
+      const who = this.words.creator || this.words.from_who
+      return who ? ` | ${who}` : ''
     },
   },
   mounted() {
