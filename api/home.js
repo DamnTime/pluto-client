@@ -1,3 +1,4 @@
+import Axios from 'axios'
 import request from '@/utils/request'
 
 // 获取文章分类列表
@@ -53,4 +54,9 @@ export const getCommentList = (params) => {
 // 更新文章阅读数
 export const updateArticlePageNum = (params) => {
   return request.post('/web/updateArticlePageNum', params)
+}
+
+// 获取每日一言
+export const getDailyWords = (params) => {
+  return Axios.get('https://v1.hitokoto.cn/?c=j', params)
 }

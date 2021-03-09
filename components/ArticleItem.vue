@@ -54,9 +54,11 @@ export default {
   justify-content: space-between;
   font-size: 14px;
   cursor: pointer;
-  transition: transform 0.3s linear;
+  transition: top 0.3s ease;
+  position: relative;
+  top: 0;
   &:hover {
-    transform: translateY(-5px);
+    top: -5px;
   }
   .time {
     color: #727272;

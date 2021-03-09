@@ -35,5 +35,7 @@ export default {
 .nav-container /deep/ .ivu-tabs-tab {
   padding-top: 10px;
   padding-bottom: 10px;
+  font-size: 15px;
+  font-weight: 400;
 }
 </style>

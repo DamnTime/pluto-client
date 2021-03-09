@@ -1,10 +1,13 @@
 <template>
   <div class="nav-bar-body">
-    <img
-      src="http://cdn.pluto1811.com/logo.png"
-      alt="automan个人技术博客vue、react、node"
-      class="nav-bar-logo"
-    />
+    <div class="nav-bar-body-left">
+      <img
+        src="http://cdn.pluto1811.com/logo.png"
+        alt="automan个人技术博客vue、react、node"
+        class="nav-bar-logo"
+      />
+      <daily-words />
+    </div>
     <client-only>
       <div class="search">
         <div class="input-wrapper">
@@ -28,9 +31,6 @@ import { mapGetters } from 'vuex'
 import { fixedEncodeURIComponent } from '@/utils'
 export default {
   name: 'Search',
-  data() {
-    return {}
-  },
   computed: {
     ...mapGetters('user', ['userInfo']),
   },
@@ -55,10 +55,15 @@ export default {
   align-items: center;
   border-bottom: 1px solid @border-color;
   padding: 0 10px;
+  .nav-bar-body-left {
+    display: flex;
+    align-items: center;
+  }
   .nav-bar-logo {
     width: 56px;
     max-height: 56px;
     vertical-align: bottom;
+    margin-right: 50px;
   }
   .search {
     // width: 300px;

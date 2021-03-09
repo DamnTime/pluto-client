@@ -16,7 +16,7 @@
       </Row>
     </div>
     <footer class="footer">
-      <p>pluto1818.com 已稳定运行1000天</p>
+      <p>pluto1818.com 已稳定运行1009天</p>
       <div>
         © 2020
         <a href="//beian.miit.gov.cn" target="_blank">蜀ICP备20002779号-1</a>
@@ -27,7 +27,9 @@
 
 <style lang="less" scoped>
 #app {
-  background: url(//cdn.pluto1811.com/153639503_2.jpg) no-repeat center/cover;
+  background: #000;
+  min-height: 100vh;
+  position: relative;
 }
 .top {
   position: fixed;
@@ -39,17 +41,18 @@
   z-index: 99;
   background-color: #fff;
   min-height: 104px;
-  max-height: 106px;
+  max-height: 110px;
   overflow: hidden;
 }
 .content {
   padding-top: 120px;
   min-height: calc(100vh - 100px);
+  background-image: linear-gradient(#020811, #172b45);
   box-sizing: border-box;
+  padding-bottom: 20px;
 }
 .footer {
   min-height: 100px;
-  background-color: #000;
   display: flex;
   justify-content: center;
   align-items: center;

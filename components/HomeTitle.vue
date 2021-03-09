@@ -26,7 +26,7 @@ export default {
   line-height: 80px;
   box-sizing: border-box;
   color: #fff;
-  background-image: linear-gradient(-45deg, #f3a76c 10%, #dd701f);
+  background-image: linear-gradient(-45deg, #52caed 10%, #3075b2);
   border-radius: 5px 5px 0 0;
 }
 </style>
