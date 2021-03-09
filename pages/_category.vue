@@ -15,6 +15,9 @@
 <script>
 import { fetchArticles } from '@/api/home'
 import reachBottom from '@/mixins/reachBottom'
+
+const pageSize = 6
+
 export default {
   mixins: [reachBottom],
   async asyncData({ params, store }) {
@@ -22,6 +25,7 @@ export default {
     store.commit('navBar/UPDATE_CURRENTCATEGORY', params.category)
     const { list, totalPage, page } = await fetchArticles({
       categoryId: params.category,
+      pageSize,
     })
     return {
       articleList: list || [],
@@ -35,22 +39,25 @@ export default {
       isLoading: false,
     }
   },
-  async fetchNextPage() {
-    if (!this.hasMore) return
-    if (this.isLoading) return
-    const { category } = this.$route.params
-    this.isLoading = true
-    this.page += 1
-    const { list, totalPage } = await fetchArticles({
-      page: this.page,
-      categoryId: category,
-    })
-    this.isLoading = false
-    this.articleList = [...this.articleList, ...list]
-    this.hasMore = this.page < totalPage
-  },
-  reachBottom() {
-    this.fetchNextPage()
+  methods: {
+    async fetchNextPage() {
+      if (!this.hasMore) return
+      if (this.isLoading) return
+      const { category } = this.$route.params
+      this.isLoading = true
+      this.page += 1
+      const { list, totalPage } = await fetchArticles({
+        page: this.page,
+        categoryId: category,
+        pageSize,
+      })
+      this.isLoading = false
+      this.articleList = [...this.articleList, ...list]
+      this.hasMore = this.page < totalPage
+    },
+    reachBottom() {
+      this.fetchNextPage()
+    },
   },
 }
 </script>
