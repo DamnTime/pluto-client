@@ -22,11 +22,11 @@ export default {
     await store.dispatch('navBar/fetchCatesAction')
     store.commit('navBar/UPDATE_CURRENTCATEGORY', '-1')
     const result = await fetchArticlesLatest()
-    const { list, totalPage, page } = result
+    const { list, totalPage, current } = result
     return {
       articleList: list || [],
-      hasMore: page < totalPage,
-      page,
+      hasMore: current < totalPage,
+      current,
     }
   },
   data() {
@@ -41,13 +41,13 @@ export default {
       if (!this.hasMore) return
       if (this.isLoading) return
       this.isLoading = true
-      this.page += 1
+      this.current += 1
       const { list, totalPage } = await fetchArticlesLatest({
-        page: this.page,
+        current: this.current,
       })
       this.isLoading = false
       this.articleList = [...this.articleList, ...list]
-      this.hasMore = this.page < totalPage
+      this.hasMore = this.current < totalPage
     },
     reachBottom() {
       this.fetchNextPage()

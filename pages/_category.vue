@@ -23,14 +23,14 @@ export default {
   async asyncData({ params, store }) {
     await store.dispatch('navBar/fetchCatesAction')
     store.commit('navBar/UPDATE_CURRENTCATEGORY', params.category)
-    const { list, totalPage, page } = await fetchArticles({
+    const { list, totalPage, current } = await fetchArticles({
       categoryId: params.category,
       pageSize,
     })
     return {
       articleList: list || [],
-      hasMore: page < totalPage,
-      page,
+      hasMore: current < totalPage,
+      current,
     }
   },
   data() {
@@ -45,15 +45,15 @@ export default {
       if (this.isLoading) return
       const { category } = this.$route.params
       this.isLoading = true
-      this.page += 1
+      this.current += 1
       const { list, totalPage } = await fetchArticles({
-        page: this.page,
+        current: this.current,
         categoryId: category,
         pageSize,
       })
       this.isLoading = false
       this.articleList = [...this.articleList, ...list]
-      this.hasMore = this.page < totalPage
+      this.hasMore = this.current < totalPage
     },
     reachBottom() {
       this.fetchNextPage()

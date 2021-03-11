@@ -24,11 +24,11 @@ export default {
     const response = await fetchArticleSearchList({
       title: decodeURIComponent(fixedEncodeURIComponent(params.key)),
     })
-    const { list, totalPage, page } = response || {}
+    const { list, totalPage, current } = response || {}
     return {
       articleList: list || [],
-      hasMore: page < totalPage,
-      page,
+      hasMore: current < totalPage,
+      current,
     }
   },
   data() {
@@ -44,14 +44,14 @@ export default {
       if (this.isLoading) return
       const { key } = this.$route.query
       this.isLoading = true
-      this.page += 1
+      this.current += 1
       const { list, totalPage } = await fetchArticleSearchList({
-        page: this.page,
+        current: this.current,
         key: decodeURIComponent(key),
       })
       this.isLoading = false
       this.articleList = [...this.articleList, ...list]
-      this.hasMore = this.page < totalPage
+      this.hasMore = this.current < totalPage
     },
     reachBottom() {
       this.fetchNextPage()

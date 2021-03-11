@@ -29,7 +29,7 @@ export default {
   data() {
     return {
       records: [],
-      page: 1,
+      current: 1,
       pageSize: 10,
       loadMore: true,
     }
@@ -41,7 +41,7 @@ export default {
         this.loadMore = true
         this.$nextTick(async () => {
           const params = {
-            page: this.page,
+            current: this.current,
             pageSize: this.pageSize,
             ...this.searchParams,
           }
