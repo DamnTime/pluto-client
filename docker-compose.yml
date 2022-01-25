@@ -2,15 +2,9 @@ version: '3'
 
 services:
   pluto_client:
-    image: node:12.16.2-alpine # 指定服务镜像
-    tty: true
+    build: # 这里指的是我们刚刚撸的 Dockerfile 文件
+      context: .
+      dockerfile: Dockerfile
+    image: node:12.16.2-alpine # 镜像名称
     container_name: pluto_client # 容器名称
-    working_dir: /home/plutoweb/client/public
-    environment:
-      - HOST=0.0.0.0
-      - NODE_ENV=production
-    ports:
-      - '80:3000'
-    volumes:
-      - ./:/home/plutoweb/client/public
-    command: sh -c "npm install --production --registry=https://registry.npm.taobao.org && npm start"
+    restart: always # 重启方式
