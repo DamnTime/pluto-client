@@ -27,5 +27,7 @@ ENV NODE_ENV production
 # 暴露容器端口
 EXPOSE 3000
 
+RUN npm run build
+
 # 启动 Node 应用
-CMD npm start
+CMD ["npm","start"]
