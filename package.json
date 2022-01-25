@@ -37,10 +37,8 @@
     "eslint-plugin-prettier": "^3.1.4",
     "less": "^3.12.2",
     "less-loader": "^5.0.0",
-    "node-sass": "^5.0.0",
     "node-ssh": "^11.1.1",
     "prettier": "^2.1.2",
-    "sass-loader": "^10.1.0",
     "style-resources-loader": "^1.4.1"
   }
 }
