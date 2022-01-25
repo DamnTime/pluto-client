@@ -7,4 +7,6 @@ services:
       dockerfile: Dockerfile
     image: node:12.16.2-alpine # 镜像名称
     container_name: pluto_client # 容器名称
+    ports:
+      - '80:3000'
     restart: always # 重启方式
