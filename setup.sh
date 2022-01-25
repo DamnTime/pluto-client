@@ -10,7 +10,7 @@ docker-compose down || true;
 # 构建镜像
 docker-compose build;
 # 启动并后台运行
-docker-compose up -d;
+docker-compose -p pluto_client up -d;
 # 查看日志
 docker logs nodejs;
 # 对空间进行自动清理
