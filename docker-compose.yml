@@ -1,10 +1,10 @@
 version: '3'
 
 services:
-  pluto_web:
+  pluto_client:
     image: node:12.16.2-alpine # 指定服务镜像
     tty: true
-    container_name: pluto_web # 容器名称
+    container_name: pluto_client # 容器名称
     working_dir: /home/plutoweb/client/public
     environment:
       - HOST=0.0.0.0
