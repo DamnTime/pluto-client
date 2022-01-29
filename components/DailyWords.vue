@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .daily-wrapper {
   .txt {
     background: linear-gradient(90deg, red, blue, red);

@@ -114,7 +114,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .login-btns {
   display: flex;
   justify-content: space-between;

@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .item-wrapper {
   border-bottom: 1px solid #f5f5f5;
 }

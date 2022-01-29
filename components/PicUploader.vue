@@ -96,7 +96,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .uploader-container {
   display: flex;
   align-items: center;
